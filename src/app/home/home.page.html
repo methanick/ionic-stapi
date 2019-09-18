@@ -1,14 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Characters of Star Trek 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-list>
+      <ion-item *ngFor="let character of characters">
+          <app-character [character]="character"></app-character>
+      </ion-item>
+    </ion-list>
   </div>
+  <ion-infinite-scroll [disabled]="!hasNext" (ionInfinite)="load($event)">
+      <ion-infinite-scroll-content 
+        loadingSpinner="dots"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

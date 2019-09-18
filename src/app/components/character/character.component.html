@@ -1,0 +1,14 @@
+<div>
+    <div *ngIf="!character.deceased; else alive">
+    <span>
+      <ion-icon name="heart"></ion-icon>
+      {{character.name}}
+    </span>
+    </div>
+    <ng-template #alive>
+    <span style="color:grey">
+      <ion-icon name="remove-circle"></ion-icon>
+      {{character.name}}
+    </span>
+    </ng-template>
+</div>
